@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.victordevs.signupcompose.presentation.login.LoginScreen
+import com.victordevs.signupcompose.presentation.register.RegistrationScreen
 import com.victordevs.signupcompose.ui.theme.SignupComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,6 +19,7 @@ class MainActivity : ComponentActivity() {
             SignupComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Login()
+               // Registration()
             }
         }
     }
@@ -28,10 +30,16 @@ fun Login() {
     LoginScreen()
 }
 
+@Composable
+fun Registration() {
+    RegistrationScreen()
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     SignupComposeTheme {
-       Login()
+        Login()
+        //Registration()
     }
 }
