@@ -12,4 +12,4 @@ project from Android Studio following the steps
 
 Preview
 -----------
-![Screenshot](screenshots/login.png)
+![Screenshot](screenshots/login.png)![Screenshot](screenshots/register.png)
