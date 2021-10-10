@@ -13,3 +13,11 @@ project from Android Studio following the steps
 Preview
 -----------
 ![Screenshot](screenshots/login.png)![Screenshot](screenshots/register.png)
+
+Test
+-------------
+user = user@gmail.com
+
+pass = password
+
+the proyect focus only flow login and register using navigationComponent and shared data into screens using arguments.
