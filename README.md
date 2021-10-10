@@ -1,4 +1,4 @@
-# signupCompose
+# SignupCompose
 Generate flow signup witch JetpackCompose
 
 For more information, please [read the documentation](https://developer.android.com/jetpack/compose)
