@@ -35,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.victordevs.signupcompose.R
+import com.victordevs.signupcompose.presentation.components.EventDialog
 import com.victordevs.signupcompose.presentation.components.RoundedButton
 import com.victordevs.signupcompose.presentation.components.TransparentTextField
 
@@ -43,7 +44,12 @@ import com.victordevs.signupcompose.presentation.components.TransparentTextField
 //contact victoralfonso920@gmail.com
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    state:LoginState,
+    onLogin: (String,String) -> Unit,
+    onNavigationToRegister: () -> Unit,
+    onDismissDialog: () -> Unit
+) {
 
     val emailValue = rememberSaveable { mutableStateOf("") }
     val passwordValue = rememberSaveable { mutableStateOf("") }
@@ -122,7 +128,7 @@ fun LoginScreen() {
                                 keyboardActions = KeyboardActions(
                                     onDone = {
                                         focusManager.clearFocus()
-                                        //TODO("LOGIN")
+                                        onLogin(emailValue.value,passwordValue.value)
                                     }
                                 ),
                                 imeAction = ImeAction.Done,
@@ -162,9 +168,9 @@ fun LoginScreen() {
                         ) {
                             RoundedButton(
                                 text = "Login",
-                                displayProgressBar = false,
+                                displayProgressBar = state.displayProgressBar,
                                 onClick = {
-                                    //TODO("LOGIN")
+                                    onLogin(emailValue.value,passwordValue.value)
                                 }
                             )
                             ClickableText(
@@ -180,7 +186,7 @@ fun LoginScreen() {
                                     }
                                 },
                                 onClick = {
-                                    //TODO("NAVIGATE TO REGISTER SCREEN")
+                                    onNavigationToRegister()
                                 }
                             )
                         }
@@ -201,7 +207,9 @@ fun LoginScreen() {
                                 margin = 36.dp
                             )
                         },
-                    onClick = { /*TODO*/ }
+                    onClick = {
+                        onNavigationToRegister()
+                    }
                 ) {
                     Icon(
                         modifier = Modifier.size(42.dp),
@@ -214,6 +222,12 @@ fun LoginScreen() {
 
 
         }
+        state.errorMessage?.let{
+            EventDialog(
+                errorMessage = state.errorMessage,
+                onDismiss = onDismissDialog
+            )
+        }
     }
 }
 
@@ -221,5 +235,5 @@ fun LoginScreen() {
 @Composable
 @Preview
 fun PreviewLogin() {
-    LoginScreen()
+    //LoginScreen()
 }

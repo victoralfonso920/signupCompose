@@ -11,21 +11,5 @@ o
 ?app/src/main/java/com/victordevs/signupcompose/ui/theme/Type.kt,3/8/38ace6cf73a29eee8d0dbd552199c556c9356656
 p
 @app/src/main/java/com/victordevs/signupcompose/ui/theme/Theme.kt,0/3/03e7c62f33f6cda414b8413360d8bbfb2a4f7bf1
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-‡
-Wapp/src/main/java/com/victordevs/signupcompose/presentation/components/RoundedButtom.kt,7/3/73a4bfc9b78f451d91850b91f1a8af13b6b6fc8e
-Ž
-^app/src/main/java/com/victordevs/signupcompose/presentation/components/TransparentTextField.kt,b/8/b820a865afe79efd95359aade0241e26dba766ae
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 >
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
-€
-Papp/src/main/java/com/victordevs/signupcompose/presentation/login/LoginScreen.kt,1/4/149f84c91a5c468b8e4d37a4b1b4ac7c88b1611b
-‹
-[app/src/main/java/com/victordevs/signupcompose/presentation/components/SocialMediaButton.kt,7/b/7b74746ea9b599ee67453446975ed80b0795c9d1
-Š
-Zapp/src/main/java/com/victordevs/signupcompose/presentation/register/RegistrationScreen.kt,2/3/23305418e9a020fcc2d3b83a14175d796e430048
-n
->app/src/main/java/com/victordevs/signupcompose/MainActivity.kt,8/3/837235b9a6879779242def1c27ac8508faa31c8f

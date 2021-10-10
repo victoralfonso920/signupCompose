@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.victordevs.signupcompose.presentation.components.EventDialog
 import com.victordevs.signupcompose.presentation.components.RoundedButton
 import com.victordevs.signupcompose.presentation.components.SocialMediaButton
 import com.victordevs.signupcompose.presentation.components.TransparentTextField
@@ -41,7 +42,13 @@ import com.victordevs.signupcompose.ui.theme.GMAILCOLOR
 //contact victoralfonso920@gmail.com
 
 @Composable
-fun RegistrationScreen() {
+fun RegistrationScreen(
+    state: RegisterState,
+    onRegister: (String, String, String, String, String) -> Unit,
+    onBack: () -> Unit,
+    onDismissDialog: () -> Unit
+
+) {
 
     val nameValue = remember { mutableStateOf("") }
     val emailValue = remember { mutableStateOf("") }
@@ -68,7 +75,7 @@ fun RegistrationScreen() {
             ) {
                 IconButton(
                     onClick = {
-                        //TODO("BACK BUTTON")
+                        onBack()
                     }
                 ) {
                     Icon(
@@ -156,7 +163,14 @@ fun RegistrationScreen() {
                     keyboardActions = KeyboardActions(
                         onDone = {
                             focusManager.clearFocus()
-                            // TODO("REGISTRATION")
+
+                            onRegister(
+                                nameValue.value,
+                                emailValue.value,
+                                phoneValue.value,
+                                passwordValue.value,
+                                confirmPasswordValue.value
+                            )
                         }
                     ),
                     imeAction = ImeAction.Done,
@@ -181,7 +195,13 @@ fun RegistrationScreen() {
                     text = "Sig Up",
                     displayProgressBar = false,
                     onClick = {
-                        //TODO("REGISTER")
+                        onRegister(
+                            nameValue.value,
+                            emailValue.value,
+                            phoneValue.value,
+                            passwordValue.value,
+                            confirmPasswordValue.value
+                        )
                     }
                 )
 
@@ -198,7 +218,7 @@ fun RegistrationScreen() {
                         }
                     },
                     onClick = {
-                        // TODO("BACK")
+                        onBack()
                     }
                 )
             }
@@ -265,11 +285,9 @@ fun RegistrationScreen() {
                 )
             }
         }
+        if(state.errorMessage != null) {
+            EventDialog(errorMessage = state.errorMessage, onDismiss = onDismissDialog)
+        }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun Preview() {
-    RegistrationScreen()
-}
